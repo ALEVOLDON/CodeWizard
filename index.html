@@ -14,7 +14,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Плавный скролл для всего сайта */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,7 +25,6 @@
             position: relative;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -109,7 +108,7 @@
             color: #00ffcc;
             font-size: 1.3rem;
             cursor: pointer;
-            transition: all 0.4s ease; /* Плавный переход для всех свойств */
+            transition: all 0.4s ease;
             border-radius: 5px;
             position: relative;
             z-index: 1;
@@ -122,28 +121,42 @@
             transform: scale(1.05);
         }
 
+        /* Centered Sections */
         .about, .projects, .prompts, .contact {
+            min-height: 100vh; /* Ensure sections are tall enough for centering */
             padding: 6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertical centering */
+            align-items: center; /* Horizontal centering */
             position: relative;
-            background: #1a1a2e; /* Единый фон для секций */
-            opacity: 0; /* Начальное состояние для анимации */
-            transform: translateY(50px); /* Легкий сдвиг вниз */
-            animation: fadeInUp 1s ease-in-out forwards; /* Появление при загрузке */
-            animation-delay: 0.2s; /* Легкая задержка для последовательности */
+            background: #1a1a2e;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: 0.2s;
         }
 
-        .projects, .prompts, .contact {
-            background: #0f0f1a; /* Чередуем цвета для контраста */
+        .projects, .prompts {
+            background: #0f0f1a; /* Alternate background for contrast */
+        }
+
+        .about .content, .projects .content, .prompts .content, .contact .content {
+            max-width: 1200px; /* Limit content width */
+            width: 100%;
+            text-align: center; /* Center text within content */
         }
 
         #cube-container {
             width: 250px;
             height: 250px;
-            transition: transform 0.5s ease; /* Плавное вращение куба */
+            transition: transform 0.5s ease;
+            margin: 0 auto; /* Center the cube */
         }
 
         .about-text {
             max-width: 500px;
+            margin: 2rem auto; /* Center bio text */
         }
 
         .project-grid {
@@ -151,7 +164,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 2rem auto; /* Center the grid */
         }
 
         .project-card {
@@ -173,6 +187,7 @@
             padding: 2rem;
             margin: 1.5rem auto;
             max-width: 800px;
+            width: 100%; /* Ensure it fits within centered content */
             border-left: 5px solid #00ffcc;
             transition: transform 0.3s ease;
         }
@@ -196,7 +211,7 @@
         }
 
         .social-cube:hover {
-            transform: scale(1.2) rotate(10deg); /* Добавлен легкий поворот */
+            transform: scale(1.2) rotate(10deg);
         }
 
         .social-cube canvas {
@@ -266,49 +281,57 @@
     </section>
 
     <section class="about">
-        <div id="cube-container"></div>
-        <div class="about-text">
-            <h2>About Me</h2>
-            <p>I’m a coder and prompt engineer obsessed with crafting elegant solutions and pushing tech boundaries. Think clean code, clever prompts, and a dash of futuristic flair.</p>
+        <div class="content">
+            <div id="cube-container"></div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I’m a coder and prompt engineer obsessed with crafting elegant solutions and pushing tech boundaries. Think clean code, clever prompts, and a dash of futuristic flair.</p>
+            </div>
         </div>
     </section>
 
     <section class="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>AI Terminal</h3>
-                <p>A sleek CLI tool powered by AI for rapid prototyping.</p>
-            </div>
-            <div class="project-card">
-                <h3>Neon Grid</h3>
-                <p>Interactive 3D grid visualization with real-time data.</p>
-            </div>
-            <div class="project-card">
-                <h3>PromptCraft</h3>
-                <p>A library of optimized prompts for creative AI outputs.</p>
+        <div class="content">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>AI Terminal</h3>
+                    <p>A sleek CLI tool powered by AI for rapid prototyping.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Neon Grid</h3>
+                    <p>Interactive 3D grid visualization with real-time data.</p>
+                </div>
+                <div class="project-card">
+                    <h3>PromptCraft</h3>
+                    <p>A library of optimized prompts for creative AI outputs.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="prompts">
-        <h2>Prompt Library</h2>
-        <div class="prompt-entry">
-            <h3>Generative Art Prompt</h3>
-            <p>"Create a vaporwave-inspired cityscape with neon lights and floating cubes, rendered in isometric 3D."</p>
-        </div>
-        <div class="prompt-entry">
-            <h3>Code Generator Prompt</h3>
-            <p>"Write a Python script for a particle system with glowing effects."</p>
+        <div class="content">
+            <h2>Prompt Library</h2>
+            <div class="prompt-entry">
+                <h3>Generative Art Prompt</h3>
+                <p>"Create a vaporwave-inspired cityscape with neon lights and floating cubes, rendered in isometric 3D."</p>
+            </div>
+            <div class="prompt-entry">
+                <h3>Code Generator Prompt</h3>
+                <p>"Write a Python script for a particle system with glowing effects."</p>
+            </div>
         </div>
     </section>
 
     <section class="contact">
-        <h2>Contact</h2>
-        <div class="social-icons">
-            <a href="#" class="social-cube" id="twitter-cube"></a>
-            <a href="#" class="social-cube" id="github-cube"></a>
-            <a href="#" class="social-cube" id="email-cube"></a>
+        <div class="content">
+            <h2>Contact</h2>
+            <div class="social-icons">
+                <a href="#" class="social-cube" id="twitter-cube"></a>
+                <a href="#" class="social-cube" id="github-cube"></a>
+                <a href="#" class="social-cube" id="email-cube"></a>
+            </div>
         </div>
     </section>
 
@@ -405,7 +428,7 @@
 
         // Smooth Scroll for CTA
         document.querySelector('.cta').addEventListener('click', (e) => {
-            e.preventDefault(); // Предотвращаем стандартное поведение
+            e.preventDefault();
             document.querySelector('.projects').scrollIntoView({ behavior: 'smooth' });
         });
 
@@ -476,7 +499,7 @@
             linesCanvas.height = window.innerHeight;
         });
 
-        // Observer для анимации секций при скролле
+        // Observer for section animations
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
